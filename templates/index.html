@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>換句話說系統 - NLP實驗室</title>
+        <title>農業文獻AI回饋資料系統</title>
         <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
         <link rel="icon" href="{{ url_for('static', path='/css/lab.png') }}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="{{ url_for('static', path='/js/control.js') }}"></script>
     </head>
     <body>
         <nav>
             <img src="{{ url_for('static', path='/css/lab.png') }}" width="100px">
-            <p id="p">專題生: 楊世宇</p>
+            <p>智慧永續新農業研究發展中心</p>
         </nav>
         <header>
-            <h1>換句話說系統</h1>
-            <p>輸入資料，以選擇你想要改變的句子</p>
+            <h1>農業文獻AI回饋資料系統</h1>
+            <p>輸入所有相關的資料，以納入資料庫，幫助AI自動閱讀系統</p>
         </header>
         <hr>
-        <div id="flash-div">
-            <p class="flash" id="flash"></p>
+        <div id="flash">
+            <p></p>
         </div>
-        <div>
-            <p class="label"><label for="content">短文</label></p>
-            <div id="content" contenteditable="True"></div>
-        </div>
-        <div>
-            <div id="btn-div">
-                <button id="check">確認</button>
-                <button id="transfer">轉換</button>
-                <button id="cancel">取消</button>
-                <button id="restart">重置</button>
+        <section>
+            <h2 class="index">第一部分</h2>
+            <p class="detail">上傳PDF後抓取內容以及標題給您確認後再送出</p>
+            <label class="file">上傳檔案<input type="file" id="file" style="visibility: hidden;" accept=".pdf"></label>
+        </section>
+        <hr class="line">
+        <section>
+            <h2 class="index">第二部分</h2>
+            <p class="detail">提供您的內容以及標題再送出</p>
+            <div>
+                <p><label class="text" for="article">標題</label></p>
+                <input id="article" name="article" type="text">
             </div>
-        </div>
-        <div id="container">
-        </div>
+            <div>
+                <p><label class="text" for="content">全文</label></p>
+                <textarea id="content" name="content"></textarea>
+            </div>
+            <div>
+                <button id="submit">送出</button>
+            </div>
+        </section>
 
         <footer>
-            <p>Demo Website</p>
-            <p>中興大學 理學大樓721室 NLP LAB</p>
+            <p>Website</p>
+            <p>中興大學 理學大樓721室 NLP LAB 楊世宇</p>
         </footer>
 
     </body>

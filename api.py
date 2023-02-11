@@ -3,40 +3,39 @@ import fitz
 
 class pdfAPI():
 
-    def parse_pdf_title(self, filename: str) -> dict:
-        doc = fitz.open(filename)
-        print ("number of pages: %i" % doc.pageCount)
+    def parse_pdf_title(self, file) -> dict:
+        doc = fitz.open(stream = file, filetype="pdf")
 
         for i in range(doc.pageCount):
             content = doc.loadPage(i).getText('text').split('\n')
             for text in content:
                 text = text.replace(' ', '')
                 if len(text) != 0:
-                    return {'title': text}
+                    return {'標題': text}
 
-        return {'title': ''}
+        return {'標題': ''}
 
 
-    def parse_pdf_article(self, filename: str, title : str) -> dict:
+    def parse_pdf_article(self, file, title : str) -> dict:
         
-        doc = fitz.open(filename)
-        print ("number of pages: %i" % doc.pageCount)
+        doc = fitz.open(stream=file, filetype="pdf")
 
-        data = {'article': ''}
+        data = {'全文': ''}
 
         for i in range(doc.pageCount):
             content = doc.loadPage(i).getText('text').replace(' ', '').replace('·', '').split('\n')
             for text in content:
                 if len(text) >= 20:
-                    data['article'] += text
+                    data['全文'] += text
 
-        data['article'] = data['article'].replace(title, '', 1)
+        data['全文'] = data['全文'].replace(title, '', 1)
         return data
 
-    def __call__(self, filename: str) -> dict:
+    def __call__(self, file) -> dict:
 
-        data = self.parse_pdf_title(f'{filename}.pdf')
-        data.update(self.parse_pdf_article(f'{filename}.pdf', data['title']))
+        data = self.parse_pdf_title(file)
+        data.update(self.parse_pdf_article(file, data['title']))
+        data.update({'單位': '', "作者": '', "發布日": 0, "摘要": ''})
 
         return data
 

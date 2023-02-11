@@ -1,0 +1,144 @@
+body{
+    margin: 0px 0px;
+    overflow-x: hidden;
+}
+
+nav{
+    width: 100%;
+    margin: 0px 0px;
+
+    display: flex;
+    justify-content: space-around;
+
+    background-color: black;
+    color: white;
+}
+
+footer{
+    width: 100%;
+    margin: 0px 0px;
+    margin-top: 60px;
+    padding: 10px 20px;
+
+    text-align: center;
+
+    background-color: black;
+    color: white;
+}
+
+footer p{
+    margin: 10px 0px;
+}
+
+header{
+    text-align: center;
+}
+
+form{
+    margin-top: 30px;
+    margin-left: 320px;
+}
+
+div{
+    margin: 20px 40px;
+}
+
+div p{
+    margin: 4px 0px;
+}
+
+input{
+    border-width: 1.25px;
+    border-color: rgb(124, 124, 124);
+    border-style: solid;
+    border-radius: 5px;
+    margin: 5px 0px;
+
+    width: 50%;
+    font-size: 16px;
+}
+
+#article{
+    width: 75%;
+    height: 30px;
+
+    padding: 3px 5px;
+    margin-left: 12.5%;
+
+    overflow: auto;
+    border-width: 1.25px;
+    border-color: rgb(124, 124, 124);
+    border-style: solid;
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+.text{
+    margin-left: 12.5%;
+}
+
+.line{
+    margin: 30px 10%;
+}
+
+#content{
+    width: 75%;
+    height: 250px;
+    margin-left: 12.5%;
+
+    padding: 3px 5px;
+
+    overflow: auto;
+    border-width: 1.25px;
+    border-color: rgb(124, 124, 124);
+    border-style: solid;
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+button{
+
+    color: green;
+
+    margin-top: 30px;
+    margin-left: 12.5%;
+    padding: 5px 20px;
+
+    font-size: 15px;
+
+    border-width: 0px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(216, 216, 216);
+}
+
+.index, .detail{
+    text-align: center;
+}
+
+.file{
+    display: block;
+    text-align: center;
+    border: 0px;
+
+    border-radius: 10px;
+
+    padding: 5px;
+    margin-left: 46.5%;
+    
+    width: 80px;
+    height: 25px;
+
+    background-color: rgb(89, 196, 254);
+    color: white;
+    cursor: pointer;
+}
+
+.file:hover{
+    background-color: rgb(152, 214, 247);
+}
