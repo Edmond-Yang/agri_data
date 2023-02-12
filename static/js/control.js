@@ -7,9 +7,7 @@ window.onload = function(){
 	$('#file').change(function(e){
 
 		var form = new FormData();
-		form.append('file', e.target.files[0],{
-			contentType: 'multipart/form-data; boundary="your-boundary-string"'
-		})
+		form.append('file', e.target.files[0])
 
 		$.ajax({
             url: '/pdf',
@@ -27,13 +25,16 @@ window.onload = function(){
               document.querySelector('#second').scrollIntoView();
             },
             error: function(error){
-              alert('發生錯誤，請盡快與工程師聯絡')
+              alert('發生錯誤，請於NCHU NLP LAB聯繫')
             }
         });
 	})
 
 
     $('#submit').click(function(){
+		data = {'article': $('#article').val(), 'content': $('#content').val()}
+		console.log($('#article').val())
+		console.log($('#content').val())
         $.ajax({
             url:"/upload",
             type: 'post',
@@ -43,7 +44,7 @@ window.onload = function(){
                 'Content-Type': 'application/json'
             },
             dataType: "json",
-            data: JSON.stringify({'article': $('#article').val(), 'content': $('#content').val()}),
+            data: JSON.stringify(data),
             success: function(res){
 
 				if(res['status'] == 'success'){
@@ -62,7 +63,7 @@ window.onload = function(){
 				}, 1500)
             },
             error: function(error){
-				alert('發生錯誤，請盡快與工程師聯絡')
+				alert('發生錯誤，請於NCHU NLP LAB聯繫')
             }
         });
     })

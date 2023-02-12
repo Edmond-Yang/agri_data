@@ -14,20 +14,14 @@
         </nav>
         <header id="header">
             <h1>農業文獻AI回饋資料系統</h1>
-            <p>輸入所有相關的資料，以納入資料庫，幫助AI自動閱讀系統</p>
+            <p> 本服務提供手動新增農業知識文獻於農業文獻AI自動閱讀系統之知識庫(https://agri.nlpnchu.org/，用以強化農業文獻AI自動閱讀系統</p>
         </header>
         <hr>
         <div id="flash">
         </div>
         <section>
-            <h2 class="index">第一部分</h2>
-            <p class="detail">上傳PDF後抓取內容以及標題給您確認後再送出</p>
-            <label class="file">上傳檔案<input type="file" id="file" style="visibility: hidden;" accept=".pdf"></label>
-        </section>
-        <hr class="line">
-        <section>
-            <h2 class="index" id="second">第二部分</h2>
-            <p class="detail">提供您的內容以及標題再送出</p>
+            <h2 class="index" id="second">使用純文字格式上傳</h2>
+            <p class="detail">貼上預計新增的農業文獻，按送出即可</p>
             <div>
                 <p><label class="text" for="article">標題</label></p>
                 <input id="article" name="article" type="text">
@@ -39,6 +33,12 @@
             <div>
                 <button id="submit">送出</button>
             </div>
+        </section>
+        <hr class="line">
+        <section>
+            <h2 class="index">使用PDF格式上傳</h2>
+            <p class="detail">可上傳PDF，系統先行轉出文字檔後，再由使用者自行挑選合適文字段落上傳</p>
+            <label class="file">上傳檔案<input type="file" id="file" style="visibility: hidden;" accept=".pdf"></label>
         </section>
 
         <footer>
