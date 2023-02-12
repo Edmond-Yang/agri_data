@@ -2,6 +2,8 @@
 
 window.onload = function(){
 
+	$('#flash').hide()
+
 	$('#file').change(function(e){
 
 		var form = new FormData();
@@ -19,11 +21,13 @@ window.onload = function(){
 			contentType: false,
 			processData: false,
             data: form,
-            success: function(res){
-              console.log(res);
+            success: function(response){
+              $('#article').val(response['data']['標題'])
+              $('#content').val(response['data']['全文'])
+              document.querySelector('#second').scrollIntoView();
             },
             error: function(error){
-              console.log(error)
+              alert('發生錯誤，請盡快與工程師聯絡')
             }
         });
 	})
@@ -41,10 +45,24 @@ window.onload = function(){
             dataType: "json",
             data: JSON.stringify({'article': $('#article').val(), 'content': $('#content').val()}),
             success: function(res){
-              console.log(res);
+
+				if(res['status'] == 'success'){
+					$('#article').val('')
+					$('#content').val('')
+				}
+				$("#flash").removeClass();
+				$('#flash').addClass(res['status'])
+				$('#flash').html('<p>' + res['details'] + '</p>')
+
+				document.querySelector('#header').scrollIntoView()
+
+				$('#flash').fadeIn("slow")
+				setTimeout(function(){
+					$('#flash').fadeOut("slow")
+				}, 1500)
             },
             error: function(error){
-              console.log(error)
+				alert('發生錯誤，請盡快與工程師聯絡')
             }
         });
     })

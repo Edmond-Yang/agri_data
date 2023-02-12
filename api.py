@@ -34,9 +34,7 @@ class pdfAPI():
     def __call__(self, file) -> dict:
 
         data = self.parse_pdf_title(file)
-        data.update(self.parse_pdf_article(file, data['title']))
-        data.update({'單位': '', "作者": '', "發布日": 0, "摘要": ''})
-
+        data.update(self.parse_pdf_article(file, data['標題']))
         return data
 
 

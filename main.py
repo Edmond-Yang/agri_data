@@ -46,17 +46,16 @@ def main(request: Request):
 @app.post("/upload")
 async def upload(item: Item):
     if len(item.article) == 0 or len(item.content) == 0:
-        return {'upload_status': 'danger', 'details': "有些欄位上未填寫"}
+        return {'status': 'danger', 'details': "有些欄位尚未填寫"}
     maps = {"單位": '', "標題": item.article, "作者": '', "發布日": 0, "摘要": '', '全文': item.content}
-    print(maps)
     write_json(maps)
-    return {'upload_status': 'success', 'details': ""}
+    return {'status': 'success', 'details': "上傳成功"}
 
 @app.post("/pdf")
 async def pdf(file: UploadFile = File(...)):
     contents = await file.read()
-    write_json(api(contents))
-    return {'upload_status': 'success', 'details': ""}
+    data = api(contents)
+    return {'status': 'success', 'data': data}
 
 
 if __name__ == '__main__':

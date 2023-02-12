@@ -142,3 +142,24 @@ button:hover{
 .file:hover{
     background-color: rgb(152, 214, 247);
 }
+
+#flash{
+
+    width: 60%;
+    text-align: center;
+    padding: 15px 0px;
+    margin-left: 20%;
+
+    font-size: larger;
+
+    color: white;
+    border-radius: 10px;
+}
+
+.success{
+    background-color: green;
+}
+
+.danger{
+    background-color: red;
+}
