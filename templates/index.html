@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>農業文獻AI回饋資料系統</title>
+        <title>農業文獻新增資料系統</title>
         <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
         <link rel="icon" href="{{ url_for('static', path='/css/lab.png') }}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -14,7 +14,8 @@
         </nav>
         <header id="header">
             <h1>農業文獻AI回饋資料系統</h1>
-            <p> 本服務提供手動新增農業知識文獻於農業文獻AI自動閱讀系統之知識庫(https://agri.nlpnchu.org/，用以強化農業文獻AI自動閱讀系統</p>
+            <p> 本服務提供手動新增農業知識文獻於農業文獻AI自動閱讀系統之知識庫(<a href="https://agri.nlpnchu.org/">https://agri.nlpnchu.org/<a>)</p>
+                <p>用以強化農業文獻AI自動閱讀系統</p>
         </header>
         <hr>
         <div id="flash">
@@ -40,7 +41,6 @@
             <p class="detail">可上傳PDF，系統先行轉出文字檔後，再由使用者自行挑選合適文字段落上傳</p>
             <label class="file">上傳檔案<input type="file" id="file" style="visibility: hidden;" accept=".pdf"></label>
         </section>
-
         <footer>
             <p>Website</p>
             <p>中興大學 理學大樓721室 NLP LAB 楊世宇</p>
