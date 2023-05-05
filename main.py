@@ -9,6 +9,8 @@ from typing import Optional
 from pydantic import BaseModel
 from api import pdfAPI
 import time
+import logging
+from logging.config import fileConfig
 
 class Item(BaseModel):
     article: str
@@ -19,6 +21,9 @@ app = FastAPI(
     description="Open-Domain Parrot Paragraph",
     version="0.1.0"
 )
+
+fileConfig('logging.conf')
+logger = logging.getLogger()
 
 api = pdfAPI()
 
