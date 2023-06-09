@@ -46,8 +46,6 @@ def write_json(maps: dict):
 def main(request: Request):
     return templates.TemplateResponse("index.html",{'request':request})
 
-
-
 @app.post("/upload")
 async def upload(item: Item):
     if len(item.article) == 0 or len(item.content) == 0:
@@ -64,5 +62,4 @@ async def pdf(file: UploadFile = File(...)):
 
 
 if __name__ == '__main__':
-    api = pdfAPI()
     uvicorn.run(app, host="0.0.0.0",port=11143)
