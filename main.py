@@ -9,7 +9,6 @@ from typing import Optional
 from pydantic import BaseModel
 from api import pdfAPI
 import time
-from logging.config import fileConfig
 
 class Item(BaseModel):
     article: str

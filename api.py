@@ -6,8 +6,8 @@ class pdfAPI():
     def parse_pdf_title(self, file) -> dict:
         doc = fitz.open(stream = file, filetype="pdf")
 
-        for i in range(doc.pageCount):
-            content = doc.loadPage(i).getText('text').split('\n')
+        for i in range(doc.page_count):
+            content = doc.load_page(i).get_text('text').split('\n')
             for text in content:
                 text = text.replace(' ', '')
                 if len(text) != 0:
@@ -22,8 +22,8 @@ class pdfAPI():
 
         data = {'全文': ''}
 
-        for i in range(doc.pageCount):
-            content = doc.loadPage(i).getText('text').replace(' ', '').replace('·', '').split('\n')
+        for i in range(doc.page_count):
+            content = doc.load_page(i).get_text('text').replace(' ', '').replace('·', '').split('\n')
             for text in content:
                 if len(text) >= 20:
                     data['全文'] += text
