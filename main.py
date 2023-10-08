@@ -9,23 +9,16 @@ from typing import Optional
 from pydantic import BaseModel
 from api import pdfAPI
 import time
-import logging
 from logging.config import fileConfig
 
 class Item(BaseModel):
     article: str
     content: str
 
-app = FastAPI(
-    title="Open-Domain Parrot Paragraph",
-    description="Open-Domain Parrot Paragraph",
-    version="0.1.0"
-)
-
-fileConfig('logging.conf')
-logger = logging.getLogger()
+app = FastAPI()
 
 api = pdfAPI()
+print('hello')
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
@@ -62,4 +55,5 @@ async def pdf(file: UploadFile = File(...)):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0",port=11143)
+    print('hello')
+    uvicorn.run(app, host="0.0.0.0")
